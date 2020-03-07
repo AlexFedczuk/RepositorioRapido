@@ -19,8 +19,11 @@ function mostrar()
 	var tipoIngredienteMasCaro;
 	var precioIngredienteMasCaro;
 	var contador;
+	var promedioPrecioKiloTotal;
+	var acumuladorPreciosIngredientes;
 	
 	contador=0;
+	acumuladorPreciosIngredientes=0;
 
 	do
 	{
@@ -66,10 +69,16 @@ function mostrar()
 
 		contador++;
 
+		acumuladorPreciosIngredientes=acumuladorPreciosIngredientes+precioIngrediente;
+
 		respuesta=prompt("Ingrese 'si',para continuar");
 	}
 	while(respuesta=="si");
 
+	promedioPrecioKiloTotal=acumuladorPreciosIngredientes/contador;
+
 	document.write("<br> El importe total a pagar es: "+precioFinalIngrediente);
+	document.write("<br> El tipo de alimento mas caro es: "+tipoValidadIngrediente);
+	document.write("<br> El promedio de precio por kilo en total es: "+promedioPrecioKiloTotal);
 
 }
