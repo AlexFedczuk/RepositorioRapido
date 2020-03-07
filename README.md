@@ -1,0 +1,2 @@
+# RepositorioRapido
+para uso rapido
