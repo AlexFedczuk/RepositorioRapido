@@ -14,7 +14,10 @@ function mostrar()
 	var respuesta;
 	var bandera;
 	var nombreHombreCasadoMasJoven;
-	var edadMasJoven;
+	var edadPasajeroMasJoven;
+	var edadPasajeroMasViejo;
+	var sexoPasajeroMasViejo;
+	var nombrePasajeroMasViejo;
 
 	bandera=0;
 
@@ -45,14 +48,26 @@ function mostrar()
 		}
 		while(!isNaN(estadoCivilPasajero) || estadoCivilPasajero!="soltero" && estadoCivilPasajero!="casado" && estadoCivilPasajero!="viudo");
 
-		if(sexoPasajero=="m" && bandera==0 && edadMasJoven<edadPasajero)
-		{
-			nombreHombreCasadoMasJoven=nombrePasajero;
+		bandera++;
 
-			bandera++;
-		}//Revisar, esta mal.
+		if(sexoPasajero=="m" && estadoCivilPasajero="casado" && bandera==0 || edadMasJoven>edadPasajero && sexoPasajero=="m" && estadoCivilPasajero="casado")
+		{
+			edadPasajeroMasJoven=edadPasajero;
+			nombreHombreCasadoMasJoven=nombrePasajero;
+		}
+
+		if(bandera==0 || edadPasajeroMasViejo<edadPasajero)
+		{
+			edadPasajeroMasViejo=edadPasajero;
+			nombrePasajeroMasViejo=nombrePasajero;
+			sexoPasajeroMasViejo=sexoPasajero;
+		}
 	
 		respuesta=prompt("Desea cancelar la reserva, ingrese 'si'.");
 	}
 	while(respuesta=="si");
+
+	document.write("<br> El nombre del hombre casado más joven es: "+nombreHombreCasadoMasJoven);
+	document.write("<br> El nombre del pasajero mas viejo es: "+nombrePasajeroMasViejo+" y su sexo es: "+sexoPasajeroMasViejo);
 }
+
