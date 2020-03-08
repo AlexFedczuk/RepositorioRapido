@@ -11,7 +11,76 @@ f) El promedio de precio por kilo en total.*/
 
 function mostrar()
 {
-	var pesoIngrediente;
+	var pesoKiloIngrediente;
+	var precioKiloIngrediente;
+	var tipoIngrediente;
+	var respuesta;
+	var precioFinalIngrediente;
+	var acumuladorPrecioKiloTotalIngrediente;
+	var tipoIngredienteMasCaro;
+	var precioIngredienteMasCaro;
+	var contador;
+	var promedioPrecioKiloTotal;
+
+	acumuladorPrecioKiloTotalIngrediente=0;
+	contador=0;
+
+	do
+	{
+		do
+		{
+			pesoKiloIngrediente=prompt("Ingrese el peso por kilo.");
+		}
+		while(isNaN(pesoKiloIngrediente) || pesoKiloIngrediente<10 && pesoKiloIngrediente>1000);
+
+		do
+		{
+			precioKiloIngrediente=prompt("Ingrese el precio por kilo.");
+		}
+		while(isNaN(precioKiloIngrediente) || precioKiloIngrediente<1);
+
+		do
+		{
+			tipoIngrediente=prompt("Ingrese el tipo de ingrediente.");
+		}
+		while(!isNaN(tipoIngrediente) || tipoIngrediente!="v" && tipoIngrediente!="a" && tipoIngrediente!="m");
+
+		if(pesoKiloIngrediente>300)
+		{
+			precioFinalIngrediente=precioKiloIngrediente-precioKiloIngrediente*25/100;
+		}else
+		{
+			if(pesoKiloIngrediente>100)
+			{
+				precioFinalIngrediente=precioKiloIngrediente-precioKiloIngrediente*15/100;
+			}else
+			{
+				precioFinalIngrediente=precioKiloIngrediente;
+			}
+		}
+
+		if(contador==0 || precioIngredienteMasCaro<precioKiloIngrediente)
+		{
+			precioIngredienteMasCaro=precioKiloIngrediente;
+			ingredienteMasCaro=tipoIngrediente;
+		}
+
+		acumuladorPrecioKiloTotalIngrediente=acumuladorPrecioKiloTotalIngrediente+precioFinalIngrediente;
+
+		contador++;
+
+		respuesta=prompt("Ingrese 'si', para seguir.");
+	}
+	while(respuesta="si");
+
+	promedioPrecioKiloTotal=acumuladorPrecioKiloTotalIngrediente/contador;
+
+	document.write("<br> El importe total a pagar es: "+acumuladorPrecioKiloTotalIngrediente);
+	document.write("<br> El tipo de alimento mas caro es: "+ingredienteMasCaro);
+	document.write("<br> El promedio de precio por kilo en total es: "+promedioPrecioKiloTotal);
+}
+
+	/*var pesoIngrediente;
 	var	precioIngrediente;
 	var tipoValidadIngrediente;
 	var respuesta;
@@ -39,7 +108,7 @@ function mostrar()
 			precioIngrediente=prompt("Ingrese el precio");
 			precioIngrediente=parseInt(precioIngrediente);
 		}
-		while(isNaN(precioIngrediente) || precioIngrediente<0);
+		while(isNaN(precioIngrediente) || precioIngrediente<1);
 
 		do
 		{
@@ -79,6 +148,4 @@ function mostrar()
 
 	document.write("<br> El importe total a pagar es: "+precioFinalIngrediente);
 	document.write("<br> El tipo de alimento mas caro es: "+tipoValidadIngrediente);
-	document.write("<br> El promedio de precio por kilo en total es: "+promedioPrecioKiloTotal);
-
-}
+	document.write("<br> El promedio de precio por kilo en total es: "+promedioPrecioKiloTotal);*/
