@@ -61,7 +61,7 @@ function mostrar()
 		}
 		while(!isNaN(estadoCivilDelPasajero) || estadoCivilDelPasajero!="soltero" && estadoCivilDelPasajero!="casado" && estadoCivilDelPasajero!="viudo");
 
-		if(contador==0 && estadoCivilDelPasajero=="casado" && sexoDelPasajero=="m" || edadPasajeroMasJoven>edadDelPasajero && estadoCivilDelPasajero=="casado" && sexoDelPasajero=="m");
+		if(contador==0 && estadoCivilDelPasajero=="casado" && sexoDelPasajero=="m" || edadDelPasajeroMasJoven>edadDelPasajero && estadoCivilDelPasajero=="casado" && sexoDelPasajero=="m");
 		{
 			nombreDelHombreCasadoMasJoven=nombreDelPasajero;
 			edadDelPasajeroMasJoven=edadDelPasajero;
