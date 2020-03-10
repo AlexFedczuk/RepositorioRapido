@@ -1,11 +1,11 @@
 /*Debemos realizar la carga de 5(cinco) productos de prevención de contagio,
 de cada una debo obtener los siguientes datos:
-el tipo (validar "barbijo" , "jabón" o "alcohol") ,
-el precio (validar entre 100 y 300),
-la cantidad de unidades (no puede ser 0 o negativo y no debe superar las 1000 unidades),
-la Marca y el fabricante.
+el tipo (validar "barbijo" , "jabón" o "alcohol") ,ok
+el precio (validar entre 100 y 300),ok
+la cantidad de unidades (no puede ser 0 o negativo y no debe superar las 1000 unidades),ok
+la Marca y el fabricante.ok
 Se debe Informar al usuario lo siguiente:
-a) Del más caro de los Barbijos, la cantidad de unidades y el fabricante
+a) Del más caro de los Barbijos, la cantidad de unidades y el fabricante.ok
 b) Del ítem con más unidades, el fabricante
 c) Cuántas unidades de jabones hay en total*/
 
@@ -13,7 +13,89 @@ c) Cuántas unidades de jabones hay en total*/
 
 function mostrar()
 {
-	var productoPrevencionContagio;
+	var tipoDeProductoDePrevencionDeContagio;
+	var precioDeProductoDePrevencionDeContagio;
+	var cantidadDeProductoDePrevencionDeContagio;
+	var marcaDeProductoDePrevencionDeContagio;
+	var fabricanteDeProductoDePrevencionDeContagio;
+	var contador;
+	var barbijoMasCaro;
+	var fabricanteDelBarbijoMasCaro;
+	var precioDelBarbijoMasCaro;
+	var cantidadDeUnidadesDelBarbijoMasCaro;
+	var productoConMasUnidades;
+	var fabricanteDelProductoConMasUnidades;
+	var acumuladorUnidadesEnTotalDeJabones;
+
+
+	contador=0;
+	acumuladorUnidadesEnTotalDeJabones=0;
+
+	do
+	{
+		do
+		{
+			tipoDeProductoDePrevencionDeContagio=prompt("Ingrese el tipo de producto");
+		}
+		while(!isNaN(tipoDeProductoDePrevencionDeContagio) || tipoDeProductoDePrevencionDeContagio!="barbijo" && tipoDeProductoDePrevencionDeContagio!="jabon" && tipoDeProductoDePrevencionDeContagio!="alcohol");
+
+		do
+		{
+			precioDeProductoDePrevencionDeContagio=prompt("Ingrese el precio");
+			precioDeProductoDePrevencionDeContagio=parseInt(precioDeProductoDePrevencionDeContagio);
+		}
+		while(isNaN(precioDeProductoDePrevencionDeContagio) || precioDeProductoDePrevencionDeContagio<100 && precioDeProductoDePrevencionDeContagio>300);
+
+		do
+		{
+			cantidadDeProductoDePrevencionDeContagio=prompt("Ingrese la cantidad");
+			cantidadDeProductoDePrevencionDeContagio=parseInt(cantidadDeProductoDePrevencionDeContagio);
+		}
+		while(isNaN(cantidadDeProductoDePrevencionDeContagio) || cantidadDeProductoDePrevencionDeContagio<1 && cantidadDeProductoDePrevencionDeContagio>1000);
+
+		do
+		{
+			marcaDeProductoDePrevencionDeContagio=prompt("Ingrese la marca del producto");
+		}
+		while(!isNaN(marcaDeProductoDePrevencionDeContagio));
+
+		do
+		{
+			fabricanteDeProductoDePrevencionDeContagio=prompt("Ingrese el fabricante del producto");
+		}
+		while(!isNaN(fabricanteDeProductoDePrevencionDeContagio));
+
+		if(contador==0 && tipoDeProductoDePrevencionDeContagio=="barbijoMasCaro" || tipoDeProductoDePrevencionDeContagio=="barbijoMasCaro" && precioDelBarbijoMasCaro<precioDeProductoDePrevencionDeContagio)
+		{
+			barbijoMasCaro=tipoDeProductoDePrevencionDeContagio;
+			fabricanteDelBarbijoMasCaro=fabricanteDeProductoDePrevencionDeContagio;
+			precioDelBarbijoMasCaro=precioDeProductoDePrevencionDeContagio;
+			cantidadDeUnidadesDelBarbijoMasCaro=cantidadDeProductoDePrevencionDeContagio;
+		}
+
+		if(contador==0 || productoConMasUnidades<cantidadDeProductoDePrevencionDeContagio)
+		{
+			productoConMasUnidades=cantidadDeProductoDePrevencionDeContagio;
+			fabricanteDelProductoConMasUnidades=fabricanteDeProductoDePrevencionDeContagio;
+		}
+
+		if(tipoDeProductoDePrevencionDeContagio=="jabon")
+		{
+			acumuladorUnidadesEnTotalDeJabones=acumuladorUnidadesEnTotalDeJabones+cantidadDeProductoDePrevencionDeContagio;
+		}
+
+
+		contador++;
+	}
+	while(contador<5);
+
+	document.write("<br> Del más caro de los Barbijos, la cantidad de unidades y el fabricante es: "+cantidadDeUnidadesDelBarbijoMasCaro+" y "+fabricanteDelBarbijoMasCaro);
+	document.write("<br> Del ítem con más unidades, el fabricante es: "+fabricanteDelProductoConMasUnidades);
+	document.write("<br> Cuántas unidades de jabones hay en total es: "+acumuladorUnidadesEnTotalDeJabones);
+}
+
+
+	/*var productoPrevencionContagio;
 	var productoPrevencionContagioPrecio;
 	var productoPrevencionContagioUnidades;
 	var productoPrevencionContagioMarca;
@@ -81,17 +163,4 @@ function mostrar()
 
 	
 
-	document.write("<br> ")
-}
-
-
-	/*if(contadorBarbijo==1)
-	{
-		barbijoMasCaro=productoPrevencionContagioPrecio;
-	}else
-	{
-		if(contadorBarbijo>1 && barbijoMasCaro<productoPrevencionContagioPrecio)
-		{
-			barbijoMasCaro=productoPrevencionContagioPrecio;
-		}
-	}*/
+	document.write("<br> ")*/
